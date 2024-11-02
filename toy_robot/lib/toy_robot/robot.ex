@@ -6,6 +6,7 @@ defmodule ToyRobot.Robot do
   moves the robot in the direction its facing one square.
 
   ## Examples
+
       iex> alias ToyRobot.Robot
       ToyRobot.Robot
       iex> robot = %Robot{north: 0, facing: :north}
@@ -20,6 +21,27 @@ defmodule ToyRobot.Robot do
       :east -> robot |> move_east
       :south -> robot |> move_south
       :west -> robot |> move_west
+    end
+  end
+
+  @doc"""
+  Turns the robot left.
+
+  ## Examples
+
+    iex> alias ToyRobot.Robot
+    ToyRobot.Robot
+    iex> robot = %Robot{facing: :north}
+    %Robot{facing: :north}
+    iex> robot |> Robot.turn_left
+    %Robot{facing: :west}
+  """
+  def turn_left(%Robot{facing: facing}) do
+    case facing do
+      :north -> %Robot{facing: :west}
+      :east -> %Robot{facing: :north}
+      :south -> %Robot{facing: :east}
+      :west -> %Robot{facing: :south}
     end
   end
 

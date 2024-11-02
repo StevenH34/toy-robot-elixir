@@ -12,6 +12,11 @@ defmodule ToyRobot.RobotTests do
       robot = robot |> Robot.move
       assert robot.north == 1
     end
+
+    test "it turns left to face west", %{robot: robot} do
+      robot = robot |> Robot.turn_left
+      assert robot.facing == :west
+    end
   end
 
   describe "When the robot is facing east" do
@@ -22,6 +27,11 @@ defmodule ToyRobot.RobotTests do
     test "it moves one square east", %{robot: robot} do
       robot = robot |> Robot.move
       assert robot.east == 1
+    end
+
+    test "it turns left to face north", %{robot: robot} do
+      robot = robot |> Robot.turn_left
+      assert robot.facing == :north
     end
   end
 
@@ -34,6 +44,11 @@ defmodule ToyRobot.RobotTests do
       robot = robot |> Robot.move
       assert robot.north == -1
     end
+
+    test "it turns left to face east", %{robot: robot} do
+      robot = robot |> Robot.turn_left
+      assert robot.facing == :east
+    end
   end
 
   describe "When the robot is facing west" do
@@ -45,5 +60,11 @@ defmodule ToyRobot.RobotTests do
       robot = robot |> Robot.move
       assert robot.east == -1
     end
+
+    test "it turns left to face south", %{robot: robot} do
+      robot = robot |> Robot.turn_left
+      assert robot.facing == :south
+    end
   end
+
 end
